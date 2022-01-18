@@ -30,6 +30,15 @@ if [ "$1" = "go" ]; then
 
         # Build
         CGO_ENABLED=0 bagop -j "$(nproc)" -b gobuster -x '(android/*|ios/*)' -d ../out .
+    elif [ "$2" = "ffuf" ]; then
+        # Get upstream
+        rm -rf upstream
+        mkdir -p upstream
+        git clone https://github.com/ffuf/ffuf.git upstream
+        cd upstream
+
+        # Build
+        CGO_ENABLED=0 bagop -j "$(nproc)" -b ffuf -x '(android/*|ios/*)' -d ../out .
     fi
 
     exit 0
@@ -39,7 +48,7 @@ fi
 if [ "$1" = "gccgo" ]; then
     # Install native dependencies
     apt update
-    apt install -y curl git
+    apt install -y curl git golang
 
     # Install bagccgop
     curl -L -o /tmp/bagccgop "https://github.com/pojntfx/bagccgop/releases/latest/download/bagccgop.linux-$(uname -m)"
@@ -52,6 +61,10 @@ if [ "$1" = "gccgo" ]; then
         git clone https://github.com/gokcehan/lf.git upstream
         cd upstream
 
+        # Patch
+        go get -u # See https://go-review.googlesource.com/c/sys/+/312349/ - `golang.org/x/sys` is out of date
+        go mod tidy
+
         # Build
         GOFLAGS='-gccgoflags=-static' bagccgop -j "$(nproc)" -b lf -x '(linux/alpha|linux/mipsle|linux/386|linux/amd64|linux/arm|linux/arm64|linux/mips|linux/mips64|linux/mips64le|linux/mipsle|linux/ppc64|linux/ppc64le|linux/riscv64|linux/s390x)' -d ../out .
     elif [ "$2" = "gobuster" ]; then
@@ -63,6 +76,15 @@ if [ "$1" = "gccgo" ]; then
 
         # Build
         GOFLAGS='-gccgoflags=-static' bagccgop -j "$(nproc)" -b gobuster -x '(linux/alpha|linux/mipsle|linux/386|linux/amd64|linux/arm|linux/arm64|linux/mips|linux/mips64|linux/mips64le|linux/mipsle|linux/ppc64|linux/ppc64le|linux/riscv64|linux/s390x)' -d ../out .
+    elif [ "$2" = "ffuf" ]; then
+        # Get upstream
+        rm -rf upstream
+        mkdir -p upstream
+        git clone https://github.com/ffuf/ffuf.git upstream
+        cd upstream
+
+        # Build
+        GOFLAGS='-gccgoflags=-static' bagccgop -j "$(nproc)" -b ffuf -x '(linux/alpha|linux/mipsle|linux/386|linux/amd64|linux/arm|linux/arm64|linux/mips|linux/mips64|linux/mips64le|linux/mipsle|linux/ppc64|linux/ppc64le|linux/riscv64|linux/s390x)' -d ../out .
     fi
 
     exit 0
