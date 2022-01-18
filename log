@@ -1,0 +1,21 @@
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0100   148  100   148    0     0   4682      0 --:--:-- --:--:-- --:--:--  4774
+100   660  100   660    0     0  17661      0 --:--:-- --:--:-- --:--:-- 17661
+100 2708k  100 2708k    0     0  10.9M      0 --:--:-- --:--:-- --:--:-- 10.9M
+Cloning into 'upstream'...
+2022/01/18 21:48:53 [33mskipping[0m [36mlinux[0m/[35marm[0m (platform matched the provided regex)
+2022/01/18 21:48:53 [33mskipping[0m [36mlinux[0m/[35mppc64[0m (platform matched the provided regex)
+2022/01/18 21:48:53 [32mbuilding[0m [36mlinux[0m/[35mppc[0m (../out/lf.linux-powerpc)
+2022/01/18 21:48:53 [33mskipping[0m [36mlinux[0m/[35marm[0m (platform matched the provided regex)
+2022/01/18 21:48:53 [33mskipping[0m [36mlinux[0m/[35msparc64[0m (platform matched the provided regex)
+2022/01/18 21:48:53 [33mskipping[0m [36mlinux[0m/[35mmipsle[0m (platform matched the provided regex)
+2022/01/18 21:48:53 [33mskipping[0m [36mlinux[0m/[35mmips64le[0m (platform matched the provided regex)
+2022/01/18 21:48:53 [33mskipping[0m [36mlinux[0m/[35mppc64le[0m (platform matched the provided regex)
+2022/01/18 21:48:53 [33mskipping[0m [36mlinux[0m/[35m386[0m (platform matched the provided regex)
+2022/01/18 21:48:53 [33mskipping[0m [36mlinux[0m/[35mamd64[0m (platform matched the provided regex)
+2022/01/18 21:48:53 [33mskipping[0m [36mlinux[0m/[35mriscv64[0m (platform matched the provided regex)
+2022/01/18 21:48:53 [33mskipping[0m [36mlinux[0m/[35ms390x[0m (platform matched the provided regex)
+2022/01/18 21:48:53 [33mskipping[0m [36mlinux[0m/[35malpha[0m (platform matched the provided regex)
+2022/01/18 21:48:53 [33mskipping[0m [36mlinux[0m/[35marm64[0m (platform matched the provided regex)
+2022/01/18 21:48:53 could not mount chroot for platform linux/ppc: err=could not mount chroot: err=exit status 32, stdout=, stderr=mount: /var/lib/bagccgop/powerpc-chroot/data: mount(2) system call failed: No such file or directory.
