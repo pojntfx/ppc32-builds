@@ -24,6 +24,12 @@ jobs:
             flags: ""
             cmd: ./Hydrunfile go gobuster
             dst: out/*
+          - id: go-ffuf
+            src: .
+            os: golang:bullseye
+            flags: ""
+            cmd: ./Hydrunfile go ffuf
+            dst: out/*
           - id: gccgo-lf
             src: .
             os: ghcr.io/pojntfx/bagccgop-base-sid
@@ -36,7 +42,12 @@ jobs:
             flags: -e '--privileged'
             cmd: ./Hydrunfile gccgo gobuster
             dst: out/*
-
+          - id: gccgo-ffuf
+            src: .
+            os: ghcr.io/pojntfx/bagccgop-base-sid
+            flags: -e '--privileged'
+            cmd: ./Hydrunfile gccgo ffuf
+            dst: out/*
 
     steps:
       - name: Maximize build space
