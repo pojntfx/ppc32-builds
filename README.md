@@ -8,7 +8,43 @@ CI/CD build configurations to get binaries for projects on 32-Bit PowerPC (ppc32
 
 ## Overview
 
-🚧 This project is a work-in-progress! Instructions will be added as soon as it is usable. 🚧
+Many modern toolchains, such as Go, don't work on PowerPC 32 and other "esoteric" environments. It can thus become quite hard to build and use software on these machines, even if cross-compilation is a possibility. This repo intends to produce pre-built static binaries for these platforms, so that they may still be used in the 21st century.
+
+Currently, the following apps are set up to be built every week:
+
+- [gokcehan/lf](https://github.com/gokcehan/lf)
+- [OJ/gobuster](https://github.com/OJ/gobuster)
+
+If you want another app to be built, please [open a GitHub issue](https://github.com/pojntfx/ppc32-builds/issues/new).
+
+## Installation
+
+Static binaries are available on [GitHub releases](https://github.com/pojntfx/invaentory/releases).
+
+On Linux, you can install them like so:
+
+```shell
+$ export BIN=lf # Or gobuster etc.
+$ curl -L -o /tmp/${BIN} "https://github.com/pojntfx/${BIN}/releases/latest/download/${BIN}.linux-$(uname -m)"
+$ sudo install /tmp/${BIN} /usr/local/bin
+```
+
+On macOS, you can use the following:
+
+```shell
+$ export BIN=lf # Or gobuster etc.
+$ curl -L -o /tmp/${BIN} "https://github.com/pojntfx/${BIN}/releases/latest/download/${BIN}.darwin-$(uname -m)"
+$ sudo install /tmp/${BIN} /usr/local/bin
+```
+
+On Windows, the following should work (using PowerShell as administrator):
+
+```shell
+PS> $BIN=lf # Or gobuster etc.
+PS> Invoke-WebRequest "https://github.com/pojntfx/invaentory/releases/latest/download/$BIN.windows-x86_64.exe" -OutFile \Windows\System32\$BIN.exe
+```
+
+You can find binaries for more operating systems and architectures on [GitHub releases](https://github.com/pojntfx/invaentory/releases).
 
 ## License
 
