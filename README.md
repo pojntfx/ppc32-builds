@@ -14,6 +14,7 @@ Currently, the following apps are set up to be built every week:
 
 - [gokcehan/lf](https://github.com/gokcehan/lf)
 - [OJ/gobuster](https://github.com/OJ/gobuster)
+- [ffuf/ffuf](https://github.com/ffuf/ffuf)
 
 If you want another app to be built, please [open a GitHub issue](https://github.com/pojntfx/ppc32-builds/issues/new).
 
