@@ -12,7 +12,7 @@ Many modern toolchains, such as Go, don't work on PowerPC 32 and other "esoteric
 
 Currently, the following apps are set up to be built every week:
 
-- [gokcehan/lf](https://github.com/gokcehan/lf)
+- [gokcehan/lf](https://github.com/gokcehan/lf) (`glibc` only)
 - [OJ/gobuster](https://github.com/OJ/gobuster)
 - [ffuf/ffuf](https://github.com/ffuf/ffuf)
 
